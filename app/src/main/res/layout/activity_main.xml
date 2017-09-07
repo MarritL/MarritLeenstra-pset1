@@ -31,7 +31,8 @@
             android:layout_alignLeft="@id/body"
             android:layout_alignBottom="@+id/body"
             android:layout_alignRight="@+id/body"
-            android:layout_alignTop="@+id/body" />
+            android:layout_alignTop="@+id/body"
+            android:visibility="gone"/>
 
         <ImageView
             android:id="@+id/eyebrows"
@@ -134,7 +135,8 @@
         android:id="@+id/checkBoxEyes"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Eyes" />
+        android:text="Eyes"
+        android:onClick="clicked"/>
 
         <CheckBox
         android:id="@+id/checkBoxNose"
@@ -176,7 +178,8 @@
             android:id="@+id/checkboxEyebrows"
             android:layout_width="200dp"
             android:layout_height="match_parent"
-            android:text="Eyebrows" />
+            android:text="Eyebrows"
+            android:onClick ="clicked"/>
     </LinearLayout>
 
     <LinearLayout
