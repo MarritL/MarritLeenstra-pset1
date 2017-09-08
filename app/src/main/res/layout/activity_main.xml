@@ -6,16 +6,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="marrit.marritleenstra_pset1.MainActivity"
-    android:weightSum="1">
+    android:weightSum="3">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+
 
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/body"
-            android:layout_width="350dp"
-            android:layout_height="350dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:srcCompat="@drawable/body"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
@@ -31,8 +37,7 @@
             android:layout_alignLeft="@id/body"
             android:layout_alignBottom="@+id/body"
             android:layout_alignRight="@+id/body"
-            android:layout_alignTop="@+id/body"
-            android:visibility="gone"/>
+            android:layout_alignTop="@+id/body" />
 
         <ImageView
             android:id="@+id/eyebrows"
@@ -125,6 +130,7 @@
             android:layout_alignRight="@+id/body"
             android:layout_alignTop="@+id/body"/>
     </RelativeLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -135,8 +141,7 @@
         android:id="@+id/checkBoxEyes"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Eyes"
-        android:onClick="clicked"/>
+        android:text="Eyes" />
 
         <CheckBox
         android:id="@+id/checkBoxNose"
@@ -166,7 +171,8 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
 
         <CheckBox
             android:id="@+id/checkBoxEars"
@@ -178,21 +184,20 @@
             android:id="@+id/checkboxEyebrows"
             android:layout_width="200dp"
             android:layout_height="match_parent"
-            android:text="Eyebrows"
-            android:onClick ="clicked"/>
+            android:text="Eyebrows" />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
 
         <CheckBox
             android:id="@+id/checkBoxArms"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="Arms"
-            android:onClick ="clicked"/>
+            android:text="Arms" />
 
         <CheckBox
             android:id="@+id/checkBoxShoes"
@@ -204,7 +209,9 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:layout_weight="1">
 
         <CheckBox
             android:id="@+id/checkBoxGlasses"
@@ -218,5 +225,6 @@
             android:layout_height="wrap_content"
             android:text="Hat" />
     </LinearLayout>
+
 
 </LinearLayout>
