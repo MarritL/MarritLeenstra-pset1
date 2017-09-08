@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         final CheckBox CBEyebrows = (CheckBox) findViewById(R.id.checkboxEyebrows);
         final CheckBox CBEyes = (CheckBox) findViewById(R.id.checkBoxEyes);
         final CheckBox CBGlasses = (CheckBox) findViewById(R.id.checkBoxGlasses);
+        final CheckBox CBMouth = (CheckBox) findViewById(R.id.checkBoxMouth);
 
         // hide all bodyparts when app is started (onCreate)
         arms.hide();
@@ -69,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         nose.hide();
         shoes.hide();
 
-        // set listener for clicks on checkboxes
+        // set listener for clicks on (all) checkboxes (however is 1-by-1)
         // method learned from: http://tekeye.uk/android/examples/code-android-event-listeners
         CBEyes.setOnClickListener(new View.OnClickListener() {
 
@@ -81,6 +82,30 @@ public class MainActivity extends AppCompatActivity {
                     eyes.hide();
             }
         });
+
+        CBArms.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                if (CBArms.isChecked())
+                    arms.show();
+                else
+                    arms.hide();
+            }
+        });
+
+        CBMouth.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                if (CBMouth.isChecked())
+                    mouth.show();
+                else
+                    mouth.hide();
+            }
+        });
+
+
 
         //CBEyes.setChecked(true);
 
