@@ -57,6 +57,10 @@ public class MainActivity extends AppCompatActivity {
         final CheckBox CBEyes = (CheckBox) findViewById(R.id.checkBoxEyes);
         final CheckBox CBGlasses = (CheckBox) findViewById(R.id.checkBoxGlasses);
         final CheckBox CBMouth = (CheckBox) findViewById(R.id.checkBoxMouth);
+        final CheckBox CBHat = (CheckBox) findViewById(R.id.checkBoxHat);
+        final CheckBox CBMustache = (CheckBox) findViewById(R.id.checkBoxMustache);
+        final CheckBox CBNose = (CheckBox) findViewById(R.id.checkBoxNose);
+        final CheckBox CBShoes = (CheckBox) findViewById(R.id.checkBoxShoes);
 
         // hide all bodyparts when app is started (onCreate)
         arms.hide();
@@ -72,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
 
         // set listener for clicks on (all) checkboxes (however is 1-by-1)
         // method learned from: http://tekeye.uk/android/examples/code-android-event-listeners
+
+        // listener for eyes
         CBEyes.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -83,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // listener for arms
         CBArms.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -94,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // listener for mouth
         CBMouth.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -105,21 +113,103 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // listener for ears
+        CBEars.setOnClickListener(new View.OnClickListener() {
 
+            public void onClick(View v) {
 
-        //CBEyes.setChecked(true);
+                if (CBEars.isChecked())
+                    ears.show();
+                else
+                    ears.hide();
+            }
+        });
 
-       // if (CBArms.isChecked()) {
-       //     arms.show();
-       // }
-       // if (CBEyes.isChecked()) {
-       //     eyes.show();
-       // }
+        // listener for eyebrows
+        CBEyebrows.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                if (CBEyebrows.isChecked())
+                    eyebrows.show();
+                else
+                    eyebrows.hide();
+            }
+        });
+
+        // listener for glasses
+        CBGlasses.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                if (CBGlasses.isChecked())
+                    glasses.show();
+                else
+                    glasses.hide();
+            }
+        });
+
+        // listener for hat
+        CBHat.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                if (CBHat.isChecked())
+                    hat.show();
+                else
+                    hat.hide();
+            }
+        });
+
+        // listener for mouth
+        CBMouth.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                if (CBMouth.isChecked())
+                    mouth.show();
+                else
+                    mouth.hide();
+            }
+        });
+
+        // listener for mustache
+        CBMustache.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                if (CBMustache.isChecked())
+                    mustache.show();
+                else
+                    mustache.hide();
+            }
+        });
+
+        // listener for shoes
+        CBShoes.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                if (CBShoes.isChecked())
+                    shoes.show();
+                else
+                    shoes.hide();
+            }
+        });
+
+        // listener for nose
+        CBNose.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                if (CBNose.isChecked())
+                    nose.show();
+                else
+                    nose.hide();
+            }
+        });
 
     }
-
-
-
 
 }
 
