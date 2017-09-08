@@ -191,7 +191,8 @@
             android:id="@+id/checkBoxArms"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="Arms" />
+            android:text="Arms"
+            android:onClick ="clicked"/>
 
         <CheckBox
             android:id="@+id/checkBoxShoes"
