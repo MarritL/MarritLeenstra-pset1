@@ -217,6 +217,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /*
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putInt("arms", arms.getVisibility());
@@ -228,6 +229,7 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
         arms.setVisibility(savedInstanceState.getInt("arms"));
     }
+    */
 
 }
 
