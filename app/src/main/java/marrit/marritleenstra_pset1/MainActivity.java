@@ -1,5 +1,6 @@
 package marrit.marritleenstra_pset1;
 
+
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,9 +8,11 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 
+ import static marrit.marritleenstra_pset1.R.drawable.arms;
+
 
 // declare a seperate class for all bodyparts
-class bodypart {
+class bodypart  {
 
     // Properties of the class
     public ImageView part;
@@ -33,10 +36,13 @@ class bodypart {
 // main activity
 public class MainActivity extends AppCompatActivity {
 
+    //View arms = findViewById(R.id.arms);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         // construct all bodyparts onCreate
         final bodypart arms = new bodypart((ImageView) findViewById(R.id.arms));
@@ -211,60 +217,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-}
-
-
-/*
-import android.graphics.drawable.Drawable;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.CheckBox;
-import android.widget.ImageView;
-
-public class MainActivity extends AppCompatActivity {
-
-    ImageView eyes = (ImageView) findViewById(R.id.eyes);
-    ImageView eyebrows = (ImageView) findViewById(R.id.eyebrows);
-    ImageView glasses = (ImageView) findViewById(R.id.glasses);
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putInt("arms", arms.getVisibility());
+        super.onSaveInstanceState(outState);
 
-
-        // source: https://developer.android.com/guide/topics/ui/controls/checkbox.html
-        public void clicked(View view) {
-            // Is the view now checked?
-            boolean checked = ((CheckBox) view).isChecked();
-
-            // Check which checkbox was clicked
-            switch (view.getId()) {
-                case R.id.checkBoxEyes:
-                    if (checked)
-                        eyes.setVisibility(View.VISIBLE);
-                    else
-                        eyes.setVisibility(View.INVISIBLE);
-                    break;
-                case R.id.checkboxEyebrows:
-                    if (checked)
-                        // make eyebrows visible
-                        eyebrows.setVisibility(View.VISIBLE);
-                    else
-                        eyebrows.setVisibility(View.INVISIBLE);
-                    break;
-                case R.id.checkBoxGlasses:
-                    if (checked)
-                        glasses.setVisibility(View.VISIBLE);
-                    else
-                        glasses.setVisibility(View.INVISIBLE);
-                    break;
-            }
-        }
     }
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        arms.setVisibility(savedInstanceState.getInt("arms"));
+    }
+
 }
-*/
+
 
 
 
