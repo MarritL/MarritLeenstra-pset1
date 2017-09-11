@@ -90,69 +90,69 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Eyes" />
+            android:text="@string/Eyes" />
 
         <CheckBox
             android:id="@+id/checkBoxNose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Nose" />
+            android:text="@string/Nose" />
 
         <CheckBox
             android:id="@+id/checkBoxMouth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Mouth" />
+            android:text="@string/Mouth" />
 
         <CheckBox
             android:id="@+id/checkBoxMustache"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Mustache" />
+            android:text="@string/Mustache" />
 
         <CheckBox
             android:id="@+id/checkBoxEars"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Ears" />
+            android:text="@string/Ears" />
 
         <CheckBox
             android:id="@+id/checkboxEyebrows"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Eyebrows" />
+            android:text="@string/Eyebrows" />
 
         <CheckBox
             android:id="@+id/checkBoxArms"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Arms" />
+            android:text="@string/Arms" />
 
         <CheckBox
             android:id="@+id/checkBoxShoes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Shoes" />
+            android:text="@string/Shoes" />
 
         <CheckBox
             android:id="@+id/checkBoxGlasses"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Glasses" />
+            android:text="@string/Glasses" />
 
         <CheckBox
             android:id="@+id/checkBoxHat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Hat" />
+            android:text="@string/Hat" />
         </LinearLayout>
 </LinearLayout>
