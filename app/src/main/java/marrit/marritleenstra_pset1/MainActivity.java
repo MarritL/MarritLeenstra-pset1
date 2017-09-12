@@ -1,42 +1,41 @@
 package marrit.marritleenstra_pset1;
 
 
-import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 
- import static marrit.marritleenstra_pset1.R.drawable.arms;
 
-
-// declare a seperate class for all bodyparts
-class bodypart  {
-
-    // Properties of the class
-    public ImageView part;
-
-    // Constructor of the class
-    public bodypart(ImageView aPart) {
-        part = aPart;
-    }
-
-    // methods
-    public void show() {
-        part.setVisibility(View.VISIBLE);
-    }
-
-    public void hide() {
-        part.setVisibility(View.INVISIBLE);
-    }
-
-}
 
 // main activity
 public class MainActivity extends AppCompatActivity {
 
-    //View arms = findViewById(R.id.arms);
+    // add member variables for checkboxes
+    private CheckBox mCBEyes;
+    private CheckBox mCBMouth;
+    private CheckBox mCBNose;
+    private CheckBox mCBArms;
+    private CheckBox mCBEars;
+    private CheckBox mCBEyebrows;
+    private CheckBox mCBGlasses;
+    private CheckBox mCBHat;
+    private CheckBox mCBMustache;
+    private CheckBox mCBShoes;
+
+    // add member variables for ImageViews (bodyparts)
+    private ImageView mEyes;
+    private ImageView mMouth;
+    private ImageView mNose;
+    private ImageView mArms;
+    private ImageView mEars;
+    private ImageView mEyebrows;
+    private ImageView mGlasses;
+    private ImageView mHat;
+    private ImageView mMustache;
+    private ImageView mShoes;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,174 +43,163 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        // construct all bodyparts onCreate
-        final bodypart arms = new bodypart((ImageView) findViewById(R.id.arms));
-        final bodypart ears = new bodypart((ImageView) findViewById(R.id.ears));
-        final bodypart eyebrows = new bodypart((ImageView) findViewById(R.id.eyebrows));
-        final bodypart eyes = new bodypart((ImageView) findViewById(R.id.eyes));
-        final bodypart glasses = new bodypart((ImageView) findViewById(R.id.glasses));
-        final bodypart hat = new bodypart((ImageView) findViewById(R.id.hat));
-        final bodypart mouth = new bodypart((ImageView) findViewById(R.id.Mouth));
-        final bodypart mustache = new bodypart((ImageView) findViewById(R.id.mustache));
-        final bodypart nose = new bodypart((ImageView) findViewById(R.id.nose));
-        final bodypart shoes = new bodypart((ImageView) findViewById(R.id.shoes));
+        // Initate all ImageViews
+        mArms = (ImageView) findViewById(R.id.arms);
+        mEars = (ImageView) findViewById(R.id.ears);
+        mEyebrows = (ImageView) findViewById(R.id.eyebrows);
+        mEyes = (ImageView) findViewById(R.id.eyes);
+        mGlasses = (ImageView) findViewById(R.id.glasses);
+        mHat = (ImageView) findViewById(R.id.hat);
+        mMouth = (ImageView) findViewById(R.id.Mouth);
+        mMustache = (ImageView) findViewById(R.id.mustache);
+        mNose = (ImageView) findViewById(R.id.nose);
+        mShoes = (ImageView) findViewById(R.id.shoes);
 
-        // construct all checkboxes onCreate
-        final CheckBox CBArms = (CheckBox) findViewById(R.id.checkBoxArms) ;
-        final CheckBox CBEars = (CheckBox) findViewById(R.id.checkBoxEars);
-        final CheckBox CBEyebrows = (CheckBox) findViewById(R.id.checkboxEyebrows);
-        final CheckBox CBEyes = (CheckBox) findViewById(R.id.checkBoxEyes);
-        final CheckBox CBGlasses = (CheckBox) findViewById(R.id.checkBoxGlasses);
-        final CheckBox CBMouth = (CheckBox) findViewById(R.id.checkBoxMouth);
-        final CheckBox CBHat = (CheckBox) findViewById(R.id.checkBoxHat);
-        final CheckBox CBMustache = (CheckBox) findViewById(R.id.checkBoxMustache);
-        final CheckBox CBNose = (CheckBox) findViewById(R.id.checkBoxNose);
-        final CheckBox CBShoes = (CheckBox) findViewById(R.id.checkBoxShoes);
+        // Make all ImageViews invisible
+        mArms.setVisibility(View.INVISIBLE);
+        mEars.setVisibility(View.INVISIBLE);
+        mEyebrows.setVisibility(View.INVISIBLE);
+        mEyes.setVisibility(View.INVISIBLE);
+        mGlasses.setVisibility(View.INVISIBLE);
+        mHat.setVisibility(View.INVISIBLE);
+        mMouth.setVisibility(View.INVISIBLE);
+        mMustache.setVisibility(View.INVISIBLE);
+        mNose.setVisibility(View.INVISIBLE);
+        mShoes.setVisibility(View.INVISIBLE);
 
-        // hide all bodyparts when app is started (onCreate)
-        arms.hide();
-        eyes.hide();
-        ears.hide();
-        eyebrows.hide();
-        glasses.hide();
-        hat.hide();
-        mouth.hide();
-        mustache.hide();
-        nose.hide();
-        shoes.hide();
+        // Initate all CheckBoxes
+        mCBArms = (CheckBox) findViewById(R.id.checkBoxArms);
+        mCBEars = (CheckBox) findViewById(R.id.checkBoxEars);
+        mCBEyebrows = (CheckBox) findViewById(R.id.checkboxEyebrows);
+        mCBEyes = (CheckBox) findViewById(R.id.checkBoxEyes);
+        mCBGlasses = (CheckBox) findViewById(R.id.checkBoxGlasses);
+        mCBMouth = (CheckBox) findViewById(R.id.checkBoxMouth);
+        mCBHat = (CheckBox) findViewById(R.id.checkBoxHat);
+        mCBMustache = (CheckBox) findViewById(R.id.checkBoxMustache);
+        mCBNose = (CheckBox) findViewById(R.id.checkBoxNose);
+        mCBShoes = (CheckBox) findViewById(R.id.checkBoxShoes);
 
         // set listener for clicks on (all) checkboxes (however is 1-by-1)
         // method learned from: http://tekeye.uk/android/examples/code-android-event-listeners
 
         // listener for eyes
-        CBEyes.setOnClickListener(new View.OnClickListener() {
+        mCBEyes.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
-                if (CBEyes.isChecked())
-                    eyes.show();
+                if (mCBEyes.isChecked())
+                    mEyes.setVisibility(View.VISIBLE);
                 else
-                    eyes.hide();
+                    mEyes.setVisibility(View.INVISIBLE);
             }
         });
 
         // listener for arms
-        CBArms.setOnClickListener(new View.OnClickListener() {
+        mCBArms.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
-                if (CBArms.isChecked())
-                    arms.show();
+                if (mCBArms.isChecked())
+                    mArms.setVisibility(View.VISIBLE);
                 else
-                    arms.hide();
+                    mArms.setVisibility(View.INVISIBLE);
             }
         });
 
         // listener for mouth
-        CBMouth.setOnClickListener(new View.OnClickListener() {
+        mCBMouth.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
-                if (CBMouth.isChecked())
-                    mouth.show();
+                if (mCBMouth.isChecked())
+                    mMouth.setVisibility(View.VISIBLE);
                 else
-                    mouth.hide();
+                    mMouth.setVisibility(View.INVISIBLE);
             }
         });
 
         // listener for ears
-        CBEars.setOnClickListener(new View.OnClickListener() {
+        mCBEars.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
-                if (CBEars.isChecked())
-                    ears.show();
+                if (mCBEars.isChecked())
+                    mEars.setVisibility(View.VISIBLE);
                 else
-                    ears.hide();
+                    mEars.setVisibility(View.INVISIBLE);
             }
         });
 
         // listener for eyebrows
-        CBEyebrows.setOnClickListener(new View.OnClickListener() {
+        mCBEyebrows.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
-                if (CBEyebrows.isChecked())
-                    eyebrows.show();
+                if (mCBEyebrows.isChecked())
+                    mEyebrows.setVisibility(View.VISIBLE);
                 else
-                    eyebrows.hide();
+                    mEyebrows.setVisibility(View.INVISIBLE);
             }
         });
 
         // listener for glasses
-        CBGlasses.setOnClickListener(new View.OnClickListener() {
+        mCBGlasses.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
-                if (CBGlasses.isChecked())
-                    glasses.show();
+                if (mCBGlasses.isChecked())
+                    mGlasses.setVisibility(View.VISIBLE);
                 else
-                    glasses.hide();
+                    mGlasses.setVisibility(View.INVISIBLE);
             }
         });
 
         // listener for hat
-        CBHat.setOnClickListener(new View.OnClickListener() {
+        mCBHat.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
-                if (CBHat.isChecked())
-                    hat.show();
+                if (mCBHat.isChecked())
+                    mHat.setVisibility(View.VISIBLE);
                 else
-                    hat.hide();
+                    mHat.setVisibility(View.INVISIBLE);
             }
         });
 
-        // listener for mouth
-        CBMouth.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-
-                if (CBMouth.isChecked())
-                    mouth.show();
-                else
-                    mouth.hide();
-            }
-        });
 
         // listener for mustache
-        CBMustache.setOnClickListener(new View.OnClickListener() {
+        mCBMustache.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
-                if (CBMustache.isChecked())
-                    mustache.show();
+                if (mCBMustache.isChecked())
+                    mMustache.setVisibility(View.VISIBLE);
                 else
-                    mustache.hide();
+                    mMustache.setVisibility(View.INVISIBLE);
             }
         });
 
         // listener for shoes
-        CBShoes.setOnClickListener(new View.OnClickListener() {
+        mCBShoes.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
-                if (CBShoes.isChecked())
-                    shoes.show();
+                if (mCBShoes.isChecked())
+                    mShoes.setVisibility(View.VISIBLE);
                 else
-                    shoes.hide();
+                    mShoes.setVisibility(View.INVISIBLE);
             }
         });
 
         // listener for nose
-        CBNose.setOnClickListener(new View.OnClickListener() {
+        mCBNose.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
-                if (CBNose.isChecked())
-                    nose.show();
+                if (mCBNose.isChecked())
+                    mNose.setVisibility(View.VISIBLE);
                 else
-                    nose.hide();
+                    mNose.setVisibility(View.INVISIBLE);
             }
         });
 
