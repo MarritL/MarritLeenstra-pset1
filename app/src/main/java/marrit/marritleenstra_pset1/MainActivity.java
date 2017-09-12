@@ -3,6 +3,7 @@ package marrit.marritleenstra_pset1;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -11,6 +12,30 @@ import android.widget.ImageView;
 
 // main activity
 public class MainActivity extends AppCompatActivity {
+
+    // add boolean variables to save View states
+    private boolean mEyesVisible;
+    private boolean mMouthVisible;
+    private boolean mNoseVisible;
+    private boolean mArmsVisible;
+    private boolean mEarsVisible;
+    private boolean mEyebrowsVisible;
+    private boolean mGlassesVisible;
+    private boolean mHatVisible;
+    private boolean mMustacheVisible;
+    private boolean mShoesVisible;
+
+    // add strings for key/value pairs to save View states
+    private static final String EYES_VISIBLE = "Eyes Visible";
+    private static final String MOUTH_VISIBLE = "Mouth Visible";
+    private static final String NOSE_VISIBLE = "Nose Visible";
+    private static final String ARMS_VISIBLE = "Arms Visible";
+    private static final String EARS_VISIBLE = "Ears Visible";
+    private static final String EYEBROWS_VISIBLE = "EyeBrows Visible";
+    private static final String GLASSES_VISIBLE = "Glasses Visible";
+    private static final String HAT_VISIBLE = "Hat Visible";
+    private static final String MUSTACHE_VISIBLE = "Mustache Visible";
+    private static final String SHOES_VISIBLE = "Shoes Visible";
 
     // add member variables for checkboxes
     private CheckBox mCBEyes;
@@ -42,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         // Initate all ImageViews
         mArms = (ImageView) findViewById(R.id.arms);
         mEars = (ImageView) findViewById(R.id.ears);
@@ -67,6 +91,40 @@ public class MainActivity extends AppCompatActivity {
         mNose.setVisibility(View.INVISIBLE);
         mShoes.setVisibility(View.INVISIBLE);
 
+        if (savedInstanceState != null) {
+            mEyesVisible = savedInstanceState.getBoolean(EYES_VISIBLE);
+            mMouthVisible = savedInstanceState.getBoolean(MOUTH_VISIBLE);
+            mArmsVisible = savedInstanceState.getBoolean(ARMS_VISIBLE);
+            mEarsVisible = savedInstanceState.getBoolean(EARS_VISIBLE);
+            mEyebrowsVisible = savedInstanceState.getBoolean(EYEBROWS_VISIBLE);
+            mGlassesVisible = savedInstanceState.getBoolean(GLASSES_VISIBLE);
+            mHatVisible = savedInstanceState.getBoolean(HAT_VISIBLE);
+            mMustacheVisible = savedInstanceState.getBoolean(MUSTACHE_VISIBLE);
+            mNoseVisible = savedInstanceState.getBoolean(NOSE_VISIBLE);
+            mShoesVisible = savedInstanceState.getBoolean(SHOES_VISIBLE);
+
+            if (mEyesVisible)
+                mEyes.setVisibility(View.VISIBLE);
+            if (mMouthVisible)
+                mMouth.setVisibility(View.VISIBLE);
+            if (mArmsVisible)
+                mArms.setVisibility(View.VISIBLE);
+            if (mEarsVisible)
+                mEars.setVisibility(View.VISIBLE);
+            if (mEyebrowsVisible)
+                mEyebrows.setVisibility(View.VISIBLE);
+            if (mGlassesVisible)
+                mGlasses.setVisibility(View.VISIBLE);
+            if (mHatVisible)
+                mHat.setVisibility(View.VISIBLE);
+            if (mMustacheVisible)
+                mMustache.setVisibility(View.VISIBLE);
+            if (mNoseVisible)
+                mNose.setVisibility(View.VISIBLE);
+            if (mShoesVisible)
+                mShoes.setVisibility(View.VISIBLE);
+        }
+
         // Initate all CheckBoxes
         mCBArms = (CheckBox) findViewById(R.id.checkBoxArms);
         mCBEars = (CheckBox) findViewById(R.id.checkBoxEars);
@@ -87,10 +145,14 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
 
-                if (mCBEyes.isChecked())
+                if (mCBEyes.isChecked()) {
                     mEyes.setVisibility(View.VISIBLE);
-                else
+                    mEyesVisible = true;
+                }
+                else {
                     mEyes.setVisibility(View.INVISIBLE);
+                    mEyesVisible = false;
+                }
             }
         });
 
@@ -205,20 +267,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    /*
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        outState.putInt("arms", arms.getVisibility());
-        super.onSaveInstanceState(outState);
 
-    }
     @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        arms.setVisibility(savedInstanceState.getInt("arms"));
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putBoolean(EYES_VISIBLE, mEyesVisible);
     }
-    */
-
 }
 
 
