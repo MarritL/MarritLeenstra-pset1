@@ -1,13 +1,10 @@
 package marrit.marritleenstra_pset1;
 
-
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
-
 
 
 // main activity
@@ -67,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Initate all ImageViews
+        // Initiate all ImageViews
         mArms = (ImageView) findViewById(R.id.arms);
         mEars = (ImageView) findViewById(R.id.ears);
         mEyebrows = (ImageView) findViewById(R.id.eyebrows);
@@ -137,6 +134,7 @@ public class MainActivity extends AppCompatActivity {
         mCBNose = (CheckBox) findViewById(R.id.checkBoxNose);
         mCBShoes = (CheckBox) findViewById(R.id.checkBoxShoes);
 
+
         // set listener for clicks on (all) checkboxes (however is 1-by-1)
         // method learned from: http://tekeye.uk/android/examples/code-android-event-listeners
 
@@ -161,10 +159,14 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
 
-                if (mCBArms.isChecked())
+                if (mCBArms.isChecked()) {
                     mArms.setVisibility(View.VISIBLE);
-                else
+                    mArmsVisible = true;
+                }
+                else {
                     mArms.setVisibility(View.INVISIBLE);
+                    mArmsVisible = false;
+                }
             }
         });
 
@@ -173,10 +175,14 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
 
-                if (mCBMouth.isChecked())
+                if (mCBMouth.isChecked()) {
                     mMouth.setVisibility(View.VISIBLE);
-                else
+                    mMouthVisible = true;
+                }
+                else {
                     mMouth.setVisibility(View.INVISIBLE);
+                    mMouthVisible = false;
+                }
             }
         });
 
@@ -185,10 +191,14 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
 
-                if (mCBEars.isChecked())
+                if (mCBEars.isChecked()) {
                     mEars.setVisibility(View.VISIBLE);
-                else
+                    mEarsVisible = true;
+                }
+                else {
                     mEars.setVisibility(View.INVISIBLE);
+                    mEarsVisible = false;
+                }
             }
         });
 
@@ -197,10 +207,14 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
 
-                if (mCBEyebrows.isChecked())
+                if (mCBEyebrows.isChecked()) {
                     mEyebrows.setVisibility(View.VISIBLE);
-                else
+                    mEyebrowsVisible = true;
+                }
+                else {
                     mEyebrows.setVisibility(View.INVISIBLE);
+                    mEyebrowsVisible = false;
+                }
             }
         });
 
@@ -209,10 +223,14 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
 
-                if (mCBGlasses.isChecked())
+                if (mCBGlasses.isChecked()) {
                     mGlasses.setVisibility(View.VISIBLE);
-                else
+                    mGlassesVisible = true;
+                }
+                else {
                     mGlasses.setVisibility(View.INVISIBLE);
+                    mGlassesVisible = false;
+                }
             }
         });
 
@@ -221,10 +239,14 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
 
-                if (mCBHat.isChecked())
+                if (mCBHat.isChecked()) {
                     mHat.setVisibility(View.VISIBLE);
-                else
+                    mHatVisible = true;
+                }
+                else {
                     mHat.setVisibility(View.INVISIBLE);
+                    mHatVisible = false;
+                }
             }
         });
 
@@ -234,10 +256,14 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
 
-                if (mCBMustache.isChecked())
+                if (mCBMustache.isChecked()) {
                     mMustache.setVisibility(View.VISIBLE);
-                else
+                    mMustacheVisible = true;
+                }
+                else {
                     mMustache.setVisibility(View.INVISIBLE);
+                    mMustacheVisible = false;
+                }
             }
         });
 
@@ -246,10 +272,14 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
 
-                if (mCBShoes.isChecked())
+                if (mCBShoes.isChecked()) {
                     mShoes.setVisibility(View.VISIBLE);
-                else
+                    mShoesVisible = true;
+                }
+                else {
                     mShoes.setVisibility(View.INVISIBLE);
+                    mShoesVisible = false;
+                }
             }
         });
 
@@ -258,23 +288,33 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
 
-                if (mCBNose.isChecked())
+                if (mCBNose.isChecked()) {
                     mNose.setVisibility(View.VISIBLE);
-                else
+                    mNoseVisible = true;
+                }
+                else {
                     mNose.setVisibility(View.INVISIBLE);
+                    mNoseVisible = false;
+                }
             }
         });
 
     }
 
-
+    // source: Phillips, Stewart and Marsicano (2017). Android Programming: The big nerd ranch guide
     @Override
     protected void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
         savedInstanceState.putBoolean(EYES_VISIBLE, mEyesVisible);
+        savedInstanceState.putBoolean(ARMS_VISIBLE, mArmsVisible);
+        savedInstanceState.putBoolean(EARS_VISIBLE, mEarsVisible);
+        savedInstanceState.putBoolean(EYEBROWS_VISIBLE, mEyebrowsVisible);
+        savedInstanceState.putBoolean(GLASSES_VISIBLE, mGlassesVisible);
+        savedInstanceState.putBoolean(MOUTH_VISIBLE, mMouthVisible);
+        savedInstanceState.putBoolean(HAT_VISIBLE, mHatVisible);
+        savedInstanceState.putBoolean(MUSTACHE_VISIBLE, mMustacheVisible);
+        savedInstanceState.putBoolean(NOSE_VISIBLE, mNoseVisible);
+        savedInstanceState.putBoolean(SHOES_VISIBLE, mShoesVisible);
     }
 }
-
-
-
 
